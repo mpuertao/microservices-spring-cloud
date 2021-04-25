@@ -3,14 +3,18 @@ package com.mpuertao.customerservice.service;
 import com.mpuertao.customerservice.entity.Customer;
 import com.mpuertao.customerservice.entity.Region;
 import com.mpuertao.customerservice.repository.CustomerRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
+@RequiredArgsConstructor
 public class CustomerServiceImpl implements CustomerService {
 
-    @Autowired
-    private CustomerRepository customerRepository;
+
+    private final CustomerRepository customerRepository;
 
     @Override
     public List<Customer> findAllCustomer() {
