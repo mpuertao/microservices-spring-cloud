@@ -23,10 +23,10 @@ public class InvoiceServiceImpl implements InvoiceService {
     @Autowired
     InvoiceItemsRepository invoiceItemsRepository;
 
+    @Autowired
+    CustomerClient customerClient;
+
      @Autowired
-     CustomerClient customerClient;
-
-
      ProductClient productClient;
 
     @Override
@@ -37,7 +37,7 @@ public class InvoiceServiceImpl implements InvoiceService {
 
     @Override
     public Invoice createInvoice(Invoice invoice) {
-        Invoice invoiceDB = invoiceRepository.findByNumberInvoice ( invoice.getNumberInvoice () );
+        Invoice invoiceDB = invoiceRepository.findByNumberInvoice(invoice.getNumberInvoice());
         if (invoiceDB !=null){
             return  invoiceDB;
         }
@@ -83,7 +83,7 @@ public class InvoiceServiceImpl implements InvoiceService {
         if (null != invoice ){
             Customer customer = customerClient.getCustomer(invoice.getCustomerId()).getBody();
             invoice.setCustomer(customer);
-            List<InvoiceItem> listItem=invoice.getItems().stream().map(invoiceItem -> {
+            List<InvoiceItem> listItem = invoice.getItems().stream().map(invoiceItem -> {
                 Product product = productClient.getProduct(invoiceItem.getProductId()).getBody();
                 invoiceItem.setProduct(product);
                 return invoiceItem;

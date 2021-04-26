@@ -12,7 +12,7 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "tlb_invoices")
+@Table(name = "tbl_invoices")
 public class Invoice {
 
     @Id
@@ -30,8 +30,6 @@ public class Invoice {
     @Column(name = "create_at")
     @Temporal(TemporalType.DATE)
     private Date createAt;
-
-
 
     @Valid
     @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })

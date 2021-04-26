@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(value = "customer")
+@RequestMapping(value = "customers")
 public class CustomerController {
 
     @Autowired

@@ -12,5 +12,5 @@ public class Product {
     private Double stock;
     private Double price;
     private String status;
-    private Category category;
+    private Categorie categorie;
 }

@@ -107,7 +107,7 @@ public class ProductController {
         return ResponseEntity.ok(productDelete);
     }
 
-    @PatchMapping(value = "/{id}/stock")
+    @GetMapping(value = "/{id}/stock")
     public ResponseEntity<Product> updateStockProduct(@PathVariable("id") Long id, @RequestParam(name = "quantity") Double quantity) {
         Product product = productService.updateStock(id, quantity);
         if (null == product) {

@@ -9,9 +9,9 @@ public class CustomerHystrixFallbackFactory implements CustomerClient{
     @Override
     public ResponseEntity<Customer> getCustomer(Long id) {
         Customer customer = Customer.builder()
-                .firstName("none")
-                .lastName("none")
-                .email("none")
+                .firstName("hystrix")
+                .lastName("hystrix")
+                .email("hystrix")
                 .build();
         return ResponseEntity.ok(customer);
     }
